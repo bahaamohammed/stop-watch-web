@@ -1,10 +1,12 @@
 let time = document.getElementById("time");
+let playButton = document.getElementById("playButton"); // Assuming play button has this id
 let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 let timer = null;
+let isRunning = false; // To track the play/pause state
 
-function stopWatch(){
-    milliseconds += 10; // Update by 10ms for precision
-    if (milliseconds == 1000) { // 1000 milliseconds equals 1 second
+function stopWatch() {
+    milliseconds += 10; // Update by 10ms
+    if (milliseconds == 1000) {
         milliseconds = 0;
         seconds++;
         if (seconds == 60) {
@@ -24,19 +26,23 @@ function stopWatch(){
     time.innerHTML = h + ":" + m + ":" + s + ":" + ms;
 }
 
-function watchStart(){
-    if(timer != null){
+function toggleStartPause() {
+    if (isRunning) {
+        // Pause the timer
         clearInterval(timer);
+        playButton.src = "images/start.png"; // Change image to "Start"
+    } else {
+        // Start the timer
+        timer = setInterval(stopWatch, 10); // Update every 10ms
+        playButton.src = "images/pause.png"; // Change image to "Pause"
     }
-    timer = setInterval(stopWatch, 10); // Set to update every 10ms
+    isRunning = !isRunning; // Toggle the state
 }
 
-function watchStop(){
-    clearInterval(timer);
-}
-
-function watchReset(){
+function watchReset() {
     clearInterval(timer);
     [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-    time.innerHTML = "00:00:00:000"; // Update to show milliseconds
+    time.innerHTML = "00:00:00:000"; // Reset the display
+    playButton.src = "images/start.png"; // Reset to start icon
+    isRunning = false; // Reset the state
 }
