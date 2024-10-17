@@ -28,13 +28,14 @@ This Stopwatch project is a simple, user-friendly web application built using HT
 
 ## File Structure
 
+```plaintext
 ├── images
 │   ├── start.png      # Image for start button
 │   ├── pause.png      # Image for pause button
 │   └── reset.png      # Image for reset button
 ├── style.css          # Stylesheet for the stopwatch UI
 ├── script.js          # JavaScript file for stopwatch logic
-├── index.html         # HTML file
+├── index.html         # HTML file containing the structure of the stopwatch
 └── README.md          # This file
 
 ## Usage
