@@ -34,7 +34,7 @@ This Stopwatch project is a simple, user-friendly web application built using HT
 │   └── reset.png      # Image for reset button
 ├── style.css          # Stylesheet for the stopwatch UI
 ├── script.js          # JavaScript file for stopwatch logic
-├── index.html         # HTML file containing the structure of the stopwatch
+├── index.html         # HTML file
 └── README.md          # This file
 
 ## Usage
